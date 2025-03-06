@@ -36,3 +36,26 @@ function addEmployeeCard(name, position) {
 
 addEmployeeCard('Alice Johnson', 'Engineer');
 addEmployeeCard('John Smith', 'Manager');
+
+
+
+
+
+// Task 3 - Bulk Update on Employee Cards
+
+// Creating a function to update the appearance of the employee dashboard, which adds a blue border around the employee's name
+
+function updateEmployeeCards() {
+    const employeeCards = document.querySelectorAll('.employee-card');
+
+    const employeeCardsArray = Array.from(employeeCards);
+
+    employeeCardsArray.forEach(card => {
+        card.style.backgroundColor = '#f0f8ff';
+        card.style.border = '2px solid #0073e6';
+    });
+}
+
+// Makes the changes above take effect immediately
+
+setTimeout(updateEmployeeCards, 0);
