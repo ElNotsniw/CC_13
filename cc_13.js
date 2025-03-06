@@ -1,6 +1,6 @@
 // Task 2 - Employee Cards Dynamic Addition
 
-// Creating the function to build an employee card
+// (Task 2) - Creating the function to build an employee card
 
 function addEmployeeCard(name, position) {
     const employeeCard = document.createElement('div')
@@ -18,9 +18,15 @@ function addEmployeeCard(name, position) {
     removeButton.textContent = 'Remove';
     removeButton.setAttribute('class', 'remove-btn')
 
-    removeButton.addEventListener('click', function() {
+    // Task 4 - Employee Card Removal with Event Bubbling
+
+    // (Task 4) - Adding event.stopPropagation to prevent the event from bubbling to the container
+    
+    removeButton.addEventListener('click', function(event) {
+        event.stopPropagation();
         employeeCard.remove();
     });
+
 
     // Creating a employee dashboard to put the employees inside the container
 
@@ -32,10 +38,19 @@ function addEmployeeCard(name, position) {
     employeeCard.appendChild(removeButton);
 }
 
-// Adding two employees to the dashboard
+// (Task 2) - Adding two employees to the dashboard
 
 addEmployeeCard('Alice Johnson', 'Engineer');
 addEmployeeCard('John Smith', 'Manager');
+
+// (Task 4) - Console-logging the employee card if the cursor is anywhere inside the employee card and is clicked
+
+const container = document.getElementById('employeeContainer')
+container.addEventListener('click', function(event){
+    if (event.target.classList.contains('employee-card')) {
+        console.log('Employee card clicked')
+    }
+})
 
 
 
