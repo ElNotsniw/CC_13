@@ -18,16 +18,6 @@ function addEmployeeCard(name, position) {
     removeButton.textContent = 'Remove';
     removeButton.setAttribute('class', 'remove-btn')
 
-    // Task 4 - Employee Card Removal with Event Bubbling
-
-    // (Task 4) - Adding event.stopPropagation to prevent the event from bubbling to the container
-    
-    removeButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        employeeCard.remove();
-    });
-
-
     // Creating a employee dashboard to put the employees inside the container
 
     const container = document.getElementById('employeeContainer');
@@ -36,6 +26,19 @@ function addEmployeeCard(name, position) {
     employeeCard.appendChild(employeeName);
     employeeCard.appendChild(employeePosition);
     employeeCard.appendChild(removeButton);
+
+    
+// -----------------------------------------------------------------------------------------------------------------------------
+
+
+    // (Task 4) - Employee Card Removal with Event Bubbling
+
+    // (Task 4) - Adding event.stopPropagation to prevent the event from bubbling to the container
+    
+    removeButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        employeeCard.remove();
+    });
 
 
 // -----------------------------------------------------------------------------------------------------------------------------
@@ -97,13 +100,10 @@ function editEmployeeCard(card, employeeNameElement, employeePositionElement) {
 // -----------------------------------------------------------------------------------------------------------------------------
 
 
-
-
 // (Task 2) - Adding two employees to the dashboard
 
 addEmployeeCard('Alice Johnson', 'Engineer');
 addEmployeeCard('John Smith', 'Manager');
-
 
 
 // -----------------------------------------------------------------------------------------------------------------------------
@@ -141,3 +141,5 @@ container.addEventListener('click', function(event){
         console.log('Employee card clicked')
     }
 })
+
+// -----------------------------------------------------------------------------------------------------------------------------
